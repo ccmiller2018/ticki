@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers\Api\V1\Ticket;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Ticket;
+use Symfony\Component\HttpFoundation\Response as SymphonyResponse;
 
 class CreateTicketController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): JsonResponse
     {
         $ticket = new Ticket($request->all());
 
-        if (!$ticket->save() instanceOf Ticket) {
+        if (!$ticket->save()) {
             return response()->json(
                 [
                     'message' => 'Ticket could not be created',
@@ -28,6 +24,6 @@ class CreateTicketController extends Controller
             );
         }
 
-        return response()->json(['success' => true], 200);
+        return response()->json(['success' => true], SymphonyResponse::HTTP_OK);
     }
 }
