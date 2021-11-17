@@ -22,7 +22,7 @@ class Ticket extends Model
         return $this->hasOne(Column::class);
     }
 
-    public function newFactory(): TicketFactory
+    public static function newFactory(): TicketFactory
     {
         return new TicketFactory();
     }

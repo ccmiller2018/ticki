@@ -14,9 +14,9 @@ class TicketFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $faker->words(3),
+            'title' => $this->faker->sentence,
             'column' => 'To Do',
-            'description' => $faker->paragraph,
+            'description' => $this->faker->paragraph,
         ];
     }
 }

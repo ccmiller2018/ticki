@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\Ticket\CreateTicketController;
+use App\Http\Controllers\Api\V1\Ticket\GetTicketController;
+use App\Http\Controllers\Api\V1\Ticket\UpdateTicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('/ticket', CreateTicketController::class)->name('api.createTicket');
-// Route::get('/ticket/{id}', GetTicketController::class)->name('api.getTicket.id');
-// Route::put('/ticket/{id}', UpdateTicketController::class)->name('api.updateTicket.id');
+Route::get('/ticket/{ticket}', GetTicketController::class)->name('api.getTicket.id');
+Route::put('/ticket/{ticket}', UpdateTicketController::class)->name('api.updateTicket.id');
 // Route::get('ticket', GetAllTicketsController::class)->name('api.getAllTickets');
 
 
